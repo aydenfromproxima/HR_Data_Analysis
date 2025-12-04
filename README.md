@@ -1,173 +1,204 @@
-**HR Data Analytics – Salary Prediction & Workforce Insights**
+# HR Data Analytics – Salary Prediction & Workforce Insights
 
-**Dataset Overview**
+A comprehensive data analytics and machine learning project exploring 5,000 employee records to understand salary drivers, workforce patterns, and predictive modeling for HR decision-making.
 
-The dataset contains 5000 employee records with 20 features, including:
+---
 
-Gender
-Business
-Dependancies
-Calls
-Type (Contract Type)
-Billing
-Rating
-Age
-Salary
-Base Pay
-Bonus
-Unit Price
-Volume
-Opening Balance
-Closing Balance
-Low
-Unit Sales
-Total Sales
-Months (Tenure)
-Education
+## Dataset Overview
 
-**Key details:**
+The dataset contains **5000 employee records** with **20 features**, including:
 
-Missing values were present in Base Pay, Opening Balance, and Total Sales and handled via KNN Imputer 
-Final dataset after cleaning had zero missing values.
+- Gender  
+- Business  
+- Dependancies  
+- Calls  
+- Contract Type  
+- Billing  
+- Rating  
+- Age  
+- Salary  
+- Base Pay  
+- Bonus  
+- Unit Price  
+- Volume  
+- Opening Balance  
+- Closing Balance  
+- Low  
+- Unit Sales  
+- Total Sales  
+- Months (Tenure)  
+- Education  
 
-**Data Preparation**
+### Key Details
 
-In the notebook, I:
+- Missing values found in **Base Pay**, **Opening Balance**, and **Total Sales**  
+- Handled using **KNN Imputer**  
+- Final cleaned dataset contains **zero missing values**
 
- Loaded CSV and inspected data shape → 5000 rows × 20 columns
- Identified missing values
- Replaced missing values using KNN Imputer
- Converted categorical columns using Label Encoding
- Checked distributions using boxplots
- Removed outliers using IQR method (validated via re-plotted boxplots) 
- Performed feature selection using Spearman correlation
+---
 
-**Analysis & Visualizations**
+## Data Preparation
 
-The project includes several visualizations and analytical steps:
+Steps performed:
 
-1. Gender Distribution
+- Loaded CSV and verified data shape (**5000 × 20**)  
+- Identified columns with missing values  
+- Imputed missing values using **KNN Imputer**  
+- Applied **Label Encoding** to categorical features  
+- Checked variable distributions using boxplots  
+- Removed outliers using the **IQR method**  
+- Performed **Spearman correlation** for feature selection  
 
-Employee count is nearly equal:
+---
 
-2528 Male
-2472 Female 
+## Analysis & Visualizations
 
-2. Education Breakdown
+### 1. Gender Distribution
 
-PG → 2979
-Graduation → 1980
-Intermediate → 27
-High School → 14
+- Male: **2528**  
+- Female: **2472**  
+Employee distribution is nearly equal.
 
-3. Contract Type Distribution
+### 2. Education Breakdown
 
-Month-to-Month → 2777
-Two Year → 1195
-One Year → 1028
+- PG: 2979  
+- Graduation: 1980  
+- Intermediate: 27  
+- High School: 14  
 
-4. Salary Distribution & Outliers
+### 3. Contract Type Distribution
 
-Visualized Salary, Base Pay, Bonus, etc. via boxplots.
-Found significant outliers and removed them.
+- Month-to-Month: 2777  
+- Two Year: 1195  
+- One Year: 1028  
 
-5. Salary Correlations
+### 4. Salary Distribution & Outliers
 
-Spearman correlation showed extremely strong relationships:
+- Boxplots used to inspect Salary, Base Pay, Bonus, etc.  
+- Significant outliers identified and removed.
 
-Total Sales → Salary (0.99) (perfect monotonic relation)
+### 5. Salary Correlations
 
-Bonus, Base Pay, Unit Sales also highly correlated (>0.8)
-Thus, these became key predictors.
+Spearman correlation revealed:
 
-6. Numerical Feature Relationships
+- **Total Sales → Salary: 0.99** (near perfect monotonic relation)  
+- Bonus, Base Pay, Unit Sales also highly correlated (**> 0.8**)  
+
+These became major predictors for modeling.
+
+### 6. Numerical Feature Relationships
 
 Scatter plots showed:
-Higher Total Sales → Higher salary
-Higher Bonus → Higher salary
-More Months (experience) → Higher salary
 
-7. Categorical Impact on Salary
+- Higher Total Sales → Higher Salary  
+- Higher Bonus → Higher Salary  
+- More Months of Experience → Higher Salary  
 
-Education strongly impacts salary.
-PG employees earn ₹50,000 – ₹2,00,000
-High School / Intermediate employees earn < ₹25,000
-Gender has nearly no salary difference.
+### 7. Categorical Impact on Salary
 
-8. Company Hiring Trends
+- PG employees earn: **₹50,000 – ₹2,00,000**  
+- High School / Intermediate: **< ₹25,000**  
+- Gender shows no meaningful salary difference.
 
-Last four months saw 765 hires, while 269 employees have long tenure (72 months).
+### 8. Company Hiring Trends
 
-**Machine Learning Models after cleaning, encoding, scaling, and feature selection:**
+- **765 hires** in the last four months  
+- **269 employees** have long tenure (72 months)
 
-Linear Regression → 78.27%
-Decision Tree Regression → 99.35%
-Random Forest Regression → 99.09%
-XGBoost Regression → 99.24% (best performance) 
-Cross Validation Results
-Random Forest CV Accuracy → 0.99993
-XGBoost CV Accuracy → 0.99961
+---
 
-**Final Model**
+## Machine Learning Models
 
- XGBoost Regressor
- StandardScaler for normalization
- Model exported as hr.pkl
- Scaler exported as schr.pkl
- Deployed using both Tkinter and Streamlit interfaces
+Models trained after cleaning, encoding, scaling, and feature selection:
 
-**Key Insights**
+- **Linear Regression:** 78.27%  
+- **Decision Tree Regression:** 99.35%  
+- **Random Forest Regression:** 99.09%  
+- **XGBoost Regression:** 99.24% (best performer)
 
-Salary is most influenced by:
-Age
-Education
-Months of experience
-Total Sales & Performance metrics
-Higher sales directly increase salary.
-Education level strongly impacts salary brackets.
-The company prefers hiring highly educated & experienced employees.
-Gender plays no significant role in salary differences.
-Strong correlations allowed the ML model to achieve very high accuracy.
+### Cross-Validation Results
 
-**Languages & Libraries Used**
+- Random Forest CV: **0.99993**  
+- XGBoost CV: **0.99961**  
 
-Python
-Pandas
-NumPy
-Scikit-learn
-XGBoost
-Seaborn
-Matplotlib
-Pingouin
-Tkinter
-Streamlit
+---
 
-**How to Run the Project**
-1. Clone the repository
+## Final Model
+
+- **XGBoost Regressor** selected as final model  
+- Normalized using **StandardScaler**  
+- Model saved as: `hr.pkl`  
+- Scaler saved as: `schr.pkl`  
+- Deployed using both **Tkinter** and **Streamlit** interfaces  
+
+---
+
+## Key Insights
+
+Salary is most strongly influenced by:
+
+- Age  
+- Education  
+- Months of Experience  
+- Total Sales  
+- Performance Metrics  
+
+Additional observations:
+
+- Higher sales strongly increase salary  
+- Education level affects salary brackets significantly  
+- Gender has no major impact on salary  
+- Strong correlations enabled highly accurate ML predictions  
+
+---
+
+## Technologies Used
+
+- Python  
+- Pandas  
+- NumPy  
+- Scikit-learn  
+- XGBoost  
+- Seaborn  
+- Matplotlib  
+- Pingouin  
+- Tkinter  
+- Streamlit  
+
+---
+
+## How to Run the Project
+
+### 1. Clone the repository
+``bash
 git clone https://github.com/yourusername/HRDataAnalytics.git
-
-2. Install dependencies
+### 2. Install dependencies
+bash
+Copy code
 pip install pandas numpy matplotlib seaborn scikit-learn xgboost streamlit
-
-3. Run the notebook
+### 3. Run the notebook
+bash
+Copy code
 jupyter notebook HRDataAnalytics.ipynb
-
-4. Run Streamlit App
+### 4. Launch the Streamlit App
+bash
+Copy code
 streamlit run hrapp.py
 
-**Future Improvements**
+## Future Improvements
+Integrate SHAP for model explainability
 
-Add SHAP analysis for model explainability
-Implement HR attrition predictions
-Build PowerBI or Streamlit dashboards
-Add feature importance visualizations
-Deploy as a web-based prediction tool
+Add HR attrition prediction module
 
-Contributing
+Create dashboards using PowerBI or Streamlit
 
-Pull requests are welcome!
-Feel free to add new visualizations, models, or improvements.
+Add advanced feature importance visualizations
 
-If You Found This Useful
+Deploy as a complete web-based prediction system
 
-Star this repository to support more data analytics projects!
+## Contributing
+Contributions are welcome.
+Feel free to add new models, visualizations, or workflow improvements.
+
+## Support
+If you found this project helpful, consider starring the repository.
