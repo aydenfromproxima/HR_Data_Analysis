@@ -170,34 +170,43 @@ Additional observations:
 ## How to Run the Project
 
 ### 1. Clone the repository
-``bash
-git clone https://github.com/yourusername/HRDataAnalytics.git
+` ` `bash git clone https://github.com/yourusername/HRDataAnalytics.git
+
 ### 2. Install dependencies
 bash
+
 Copy code
+
 pip install pandas numpy matplotlib seaborn scikit-learn xgboost streamlit
+
 ### 3. Run the notebook
 bash
+
 Copy code
+
 jupyter notebook HRDataAnalytics.ipynb
+
 ### 4. Launch the Streamlit App
 bash
+
 Copy code
+
 streamlit run hrapp.py
 
 ## Future Improvements
-Integrate SHAP for model explainability
+- Integrate SHAP for model explainability
 
-Add HR attrition prediction module
+- Add HR attrition prediction module
 
-Create dashboards using PowerBI or Streamlit
+- Create dashboards using PowerBI or Streamlit
 
-Add advanced feature importance visualizations
+- Add advanced feature importance visualizations
 
-Deploy as a complete web-based prediction system
+- Deploy as a complete web-based prediction system
 
 ## Contributing
 Contributions are welcome.
+
 Feel free to add new models, visualizations, or workflow improvements.
 
 ## Support
